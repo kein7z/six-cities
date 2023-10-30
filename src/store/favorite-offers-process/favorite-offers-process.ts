@@ -17,9 +17,7 @@ export const favoriteOffersProcess = createSlice({
     builder
       .addCase(fetchFavoritsAction.pending, (state) => {
         state.isFavoriteOffersLoading = true;
-        if (!state.favoriteOffers.length) {
-          state.isAddFavoriteHotelLoading = true;
-        }
+        state.isAddFavoriteHotelLoading = true;
       })
       .addCase(fetchFavoritsAction.fulfilled, (state, action) => {
         state.favoriteOffers = action.payload;

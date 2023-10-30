@@ -96,7 +96,6 @@ export const fetchToChangeFavoriteStatusAction = createAsyncThunk<AvailableOffer
   },
   );
 
-
 export const fetchFavoritsAction = createAsyncThunk<AvailableOffer[], undefined, {
   dispatch: AppDispatch,
   state: State,

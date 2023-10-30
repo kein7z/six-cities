@@ -13,12 +13,8 @@ export const getCommentsProcess = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      // .addCase(fetchGetCommentsAction.pending, (state) => {
-      //   // state.isAvailableOffersLoading = true;
-      // })
       .addCase(fetchGetCommentsAction.fulfilled, (state, action) => {
         state.comments = action.payload;
-        // state.isAvailableOffersLoading = false;
       });
   }
 });

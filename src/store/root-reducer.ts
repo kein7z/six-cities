@@ -9,7 +9,6 @@ import { favoriteOffersProcess } from './favorite-offers-process/favorite-offers
 import { nearOffersProcess } from './near-offers-process/near-offers-process';
 import { addNewCommentProcess } from './add-new-comment-process/add-new-comment-process';
 
-
 export const rootReducer = combineReducers({
   [NameSpace.AvailableOffers]: avalibleOffersProcess.reducer,
   [NameSpace.CurrentCity]: currentCityProcess.reducer,

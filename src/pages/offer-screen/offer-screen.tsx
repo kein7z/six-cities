@@ -11,26 +11,29 @@ import { getIsNearOffersLoading, getNearOffers } from '../../store/near-offers-p
 import Map from '../../components/render-map/render-map';
 import RenderNearOffers from '../../components/render-near-offers/render-near-offers';
 import RenderComment from '../../components/render-comment/render-comment';
+import { AuthorizationStatus } from '../../const';
+import { getAuthorizationStatus } from '../../store/user-process/selectors';
 
 const OfferScreen = () => {
   const dispatch = useAppDispatch();
+  const authStatus = useAppSelector(getAuthorizationStatus);
   const hotel = useAppSelector(getHotel);
   const { id } = useParams();
   const isFavoriteListUpdate = useAppSelector(getAddToFavoriteHotelStatus);
   const hotelId = Number(id);
-
   const isNearOffersLoading = useAppSelector(getIsNearOffersLoading);
 
   if (isNearOffersLoading === false) {
     dispatch(fetchNearOffers({ hotelId: hotelId }));
   }
+
   const near = useAppSelector(getNearOffers);
 
   useEffect(() => {
     dispatch(fetchHotelIdAction(Number(hotelId)));
     dispatch(fetchGetCommentsAction(Number(hotelId)));
 
-    if (isFavoriteListUpdate === false) {
+    if (isFavoriteListUpdate === false && authStatus === AuthorizationStatus.Auth) {
       dispatch(fetchFavoritsAction());
     }
   }, [dispatch, id, isFavoriteListUpdate]);

@@ -23,5 +23,4 @@ const RenderCityItem = ({ city }: RenderCityItemProps) => {
   );
 };
 
-
 export default RenderCityItem;

@@ -9,7 +9,6 @@ type PrivateRouteProps = {
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = (props) => {
-
   const authStatus = useAppSelector(getAuthorizationStatus);
 
   return (

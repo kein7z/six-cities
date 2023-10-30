@@ -6,7 +6,6 @@ export type FavoriteCardProps = {
   favoriteOffer: AvailableOffer
 };
 
-
 const FavoriteCard = ({ favoriteOffer: { type, title, rating, isPremium, id, previewImage, price, isFavorite } }: FavoriteCardProps) => (
   <article className="favorites__card place-card">
     {
@@ -48,6 +47,5 @@ const FavoriteCard = ({ favoriteOffer: { type, title, rating, isPremium, id, pre
     </div>
   </article>
 );
-
 
 export default FavoriteCard;

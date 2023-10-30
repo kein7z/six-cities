@@ -9,7 +9,6 @@ import { AvailableOffer } from '../../types/available-offers';
 const RenderPlaces: React.FC = () => {
   const currentCity = useAppSelector(getCurrentCity);
   const allHotels = useAppSelector(getAvailableOffers);
-
   const [sortedHotels, setSortedHotels] = useState<AvailableOffer[]>([]);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [currentTypeSort, setCurrentTypeSort] = useState('Popular');

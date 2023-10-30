@@ -2,7 +2,6 @@ import { useEffect, useState, useRef, MutableRefObject } from 'react';
 import { Map, TileLayer } from 'leaflet';
 import { City } from '../types/map-types';
 
-
 function useMap(
   mapRef: MutableRefObject<HTMLElement | null>,
   city: City
@@ -35,7 +34,6 @@ function useMap(
       isRenderedRef.current = true;
     }
   }, [mapRef, map, city]);
-
   return map;
 }
 

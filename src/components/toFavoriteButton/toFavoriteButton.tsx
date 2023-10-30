@@ -23,6 +23,7 @@ const ToFavoriteButton = ({ hotelId, isFavorite }: toFavoriteButtonProps) => {
       dispatch(redirectToRoute(AppRoute.Login));
     }
   };
+
   return (
     <button
       className={`place-card__bookmark-button button ${isFavorite ? 'place-card__bookmark-button--active' : null}`}

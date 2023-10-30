@@ -48,8 +48,6 @@ const RenderCommentForm = ({ hotelId }: RenderCommentFormProps) => {
 
       if (result.meta.requestStatus === 'rejected') {
         toast.error('Ошибка отправки комментария!');
-      } else {
-        // Успешное выполнение операции, можно что-то предпринять
       }
 
       setMessage({ rating: 0, comment: '' });

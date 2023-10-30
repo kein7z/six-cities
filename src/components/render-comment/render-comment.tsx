@@ -22,7 +22,6 @@ const RenderComment = ({ hotelId }: { hotelId: number }) => {
         : null}
     </section>
   );
-
 };
 
 export default RenderComment;

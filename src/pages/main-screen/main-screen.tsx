@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import RenderHeader from '../../components/render-header/render-header';
 import RenderListOfCities from '../../components/render-list-of-cities/render-list-of-cities';
 import Map from '../../components/render-map/render-map';
@@ -11,16 +10,6 @@ const MainScreen = () => {
   const city = useAppSelector(getCurrentCity);
   const offers = useAppSelector(getAvailableOffers);
   const offersSortByCity = offers.filter((offer) => offer.city.name === city);
-
-  // const [selectedPoint, setSelectedPoint] = useState<AvailableOffer | undefined>(
-  //   undefined
-  // );
-
-  // const onListItemHover = (listItemId: number) => {
-  //   const currentPoint = offers.find((offer) => offer.id === listItemId);
-
-  //   setSelectedPoint(currentPoint);
-  // };
 
   return (
     <>
@@ -66,6 +55,5 @@ const MainScreen = () => {
     </>
   );
 };
-
 
 export default MainScreen;

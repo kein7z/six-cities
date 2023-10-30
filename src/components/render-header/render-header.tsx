@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getAuthorizationStatus, getUserEmail } from '../../store/user-process/selectors';
 import { fetchFavoritsAction, logoutAction } from '../../store/api-action';
 import { getFavoriteOffers } from '../../store/favorite-offers-process/selectors';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAddToFavoriteHotelStatus } from '../../store/available-offers-process/selectors';
 
 const RenderHeader = () => {
@@ -13,12 +13,14 @@ const RenderHeader = () => {
   const favoriteOffers = useAppSelector(getFavoriteOffers);
   const isFavoriteListUpdate = useAppSelector(getAddToFavoriteHotelStatus);
   const dispatch = useAppDispatch();
+  const [hasFetchedFavorites, setHasFetchedFavorites] = useState(false);
 
   useEffect(() => {
-    if (isFavoriteListUpdate === false) {
+    if (authStatus === AuthorizationStatus.Auth && (!hasFetchedFavorites || !isFavoriteListUpdate)) {
       dispatch(fetchFavoritsAction());
+      setHasFetchedFavorites(true);
     }
-  }, [isFavoriteListUpdate, dispatch]);
+  }, [authStatus, isFavoriteListUpdate, dispatch, hasFetchedFavorites]);
 
   const logoutHandler = (evt: { preventDefault: () => void; }) => {
     evt.preventDefault();

@@ -40,5 +40,4 @@ const App = () => (
   </HistoryRouter >
 );
 
-
 export default App;

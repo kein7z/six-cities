@@ -1,20 +1,12 @@
 import { Icon, Marker, layerGroup } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {
-  // AvailableOffer,
-  AvailableOffers
-} from '../../types/available-offers';
+import {AvailableOffers} from '../../types/available-offers';
 import { useRef, useEffect } from 'react';
-import {
-  URL_MARKER_DEFAULT,
-  // URL_MARKER_CURRENT
-} from '../../const';
+import { URL_MARKER_DEFAULT} from '../../const';
 import useMap from '../../hooks/useMap';
 
 type MapProps = {
-  // currentOffer?: AvailableOffer;
   offers: AvailableOffers ;
-  // selectedPoint?: AvailableOffer | undefined;
 };
 
 const defaultCustomIcon = new Icon({
@@ -23,15 +15,8 @@ const defaultCustomIcon = new Icon({
   iconAnchor: [14, 39]
 });
 
-// const currentCustomIcon = new Icon({
-//   iconUrl: URL_MARKER_CURRENT,
-//   iconSize: [27, 39],
-//   iconAnchor: [14, 39]
-// });
-
 function Map({ offers }: MapProps) {
   const mapRef = useRef(null);
-
   const city = offers[0].city;
   const map = useMap(mapRef, city);
 
@@ -49,27 +34,15 @@ function Map({ offers }: MapProps) {
 
         marker
           .setIcon(
-            // selectedPoint !== undefined && offer.id === selectedPoint.id
-            // ? currentCustomIcon
             defaultCustomIcon)
           .addTo(placeLayer);
       });
-
-      // if (currentOffer) {
-      //   const currentMarker = new Marker({
-      //     lat: currentOffer.location.latitude,
-      //     lng: currentOffer.location.longitude
-      //   });
-
-      //   currentMarker.setIcon(currentCustomIcon).addTo(placeLayer);
-      // }
 
       return () => {
         map.removeLayer(placeLayer);
       };
     }
   }, [map, offers, city]);
-  // selectedPoint currentOffer
 
   return (
     <section

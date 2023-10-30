@@ -16,7 +16,6 @@ const FavoriteScreen = () => {
     if (isFavoriteLoading === true) {
       dispatch(fetchFavoritsAction());
     }
-
     const cityInFavoriteOffers = new Set<string>();
 
     favoriteOffers.forEach((element) => {
